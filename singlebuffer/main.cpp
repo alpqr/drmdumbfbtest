@@ -230,6 +230,7 @@ void DumbBufferRenderer::update()
 int main(int argc, char **argv)
 {
     qputenv("QT_QPA_PLATFORM", "linuxfb:nographicsmodeswitch"); // something whose init won't interfere with us
+    qputenv("QT_LOGGING_RULES", "qt.qpa.*=true");
     QGuiApplication app(argc, argv);
 
     DumbBufferRenderer r;
