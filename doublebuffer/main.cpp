@@ -43,6 +43,7 @@ private:
     void *nativeDisplay() const override;
     QPlatformScreen *createScreen(const QKmsOutput &output) override;
     void registerScreen(QPlatformScreen *screen,
+                        bool isPrimary,
                         const QPoint &virtualPos,
                         const QList<QPlatformScreen *> &virtualSiblings) override;
 
@@ -106,11 +107,13 @@ QPlatformScreen *Device::createScreen(const QKmsOutput &output)
 }
 
 void Device::registerScreen(QPlatformScreen *screen,
+                            bool isPrimary,
                             const QPoint &virtualPos,
                             const QList<QPlatformScreen *> &virtualSiblings)
 {
     // never called
     Q_UNUSED(screen);
+    Q_UNUSED(isPrimary);
     Q_UNUSED(virtualPos);
     Q_UNUSED(virtualSiblings);
 }
